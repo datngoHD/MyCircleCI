@@ -5,9 +5,9 @@ orbs:
 
 jobs:
   build:
-    working_directory: ~/repo
+    working_directory: ~/demo-react-native
     docker:
-      - image: cimg/node:18.10.0
+      - image: cimg/node:12.16
     steps:
       - run: echo "Say hello to YAML!"
 
