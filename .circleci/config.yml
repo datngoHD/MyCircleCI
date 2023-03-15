@@ -19,8 +19,6 @@ jobs:
 
 workflows:
   test-only:
-    when:
-      equal: [<<pipeline.parameters.mode>>, "test"]
     jobs:
       - test:
           context:
