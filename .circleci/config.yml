@@ -1,11 +1,8 @@
 version: 2.1
 
-orbs:
-  win: circleci/windows@2.4.0
-
 jobs:
   build:
-    working_directory: ~/demo-react-native
+    working_directory: ~/MyCircleCI
     docker:
       - image: cimg/node:12.16
     steps:
