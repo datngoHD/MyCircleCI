@@ -1,9 +1,7 @@
 version: 2.1
 jobs:
-  build:
-    working_directory: ~/repo
-    docker:
-      - image: cimg/node:18.10.0
+  test:
+    executor: equestria/linux
     steps:
       - checkout
       - restore_cache:
