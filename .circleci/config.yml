@@ -1,8 +1,12 @@
 version: 2.1
 
+orbs:
+  node: circleci/node@1.1.6
+
 jobs:
   test:
-    executor: node/default
+    executor:
+      name: node/default
     steps:
       - checkout
       - run:
