@@ -1,26 +1,15 @@
 version: 2.1
+
 jobs:
   test:
     executor: equestria/linux
     steps:
-      - equestria/setup-ssh
-      - equestria/setup-tools
       - checkout
-      - equestria/docker-login
-      - equestria/setup-node:
-          yarn: true
-      - equestria/update-dependencies:
-          dependency-chain: <<pipeline.parameters.dependency-chain>>
-          dependencies: <<pipeline.parameters.dependencies>>
-          yarn: true
       - run:
           name: Install packages
-          command: |
-            nvm use
-            yarn install --frozen-lockfile
+          command: yarn install --frozen-lockfile
       - run:
           name: Run tests
           command: |
             nvm use
             yarn run test
-            
