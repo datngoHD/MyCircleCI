@@ -8,10 +8,6 @@ jobs:
     steps:
       - checkout
       - run: yarn install
-      - persist_from_workspace:
-          root: ~/repo
-          paths:
-            - android/app/build/outputs
       - run:
           name: Run Unit Tests
           command: react-native run-android --variant=debug && yarn test
