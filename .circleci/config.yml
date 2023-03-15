@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  win: circleci/windows@2.4.0
+
 jobs:
   test:
     docker:
@@ -10,4 +13,4 @@ jobs:
 workflows:
   test_only:
     jobs:
-      - test11
+      - test
