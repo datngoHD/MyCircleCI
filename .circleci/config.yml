@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  node: circleci/node@4.7
+
 jobs:
   test:
     executor: equestria/linux
@@ -13,3 +16,12 @@ jobs:
           command: |
             nvm use
             yarn run test
+
+workflows:
+  test-only:
+    when:
+      equal: [<<pipeline.parameters.mode>>, "test"]
+    jobs:
+      - test:
+          context:
+            - main
