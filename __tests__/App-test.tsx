@@ -12,6 +12,6 @@ it('Renders Message', async () => {
 
   await waitFor(() => expect(queryByTestId('printed-message')).toBeTruthy());
 
-  expect(getByTestId('printed-message').props.children).toBe('Hello Tester');
+  expect(getByTestId('printed-message').props.children).toBe('Hello Tester1');
   expect(toJSON()).toMatchSnapshot();
 });
