@@ -17,7 +17,7 @@ jobs:
           command: react-native run-android --variant=debug && yarn test
 
 workflows:
-  test-only:
+  test:
     jobs:
       - test:
           context:
