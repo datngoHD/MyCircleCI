@@ -7,9 +7,3 @@ jobs:
     steps:
       - run: echo "Say hello to YAML!"
 
-workflows:
-  test:
-    jobs:
-      - test:
-          context:
-            - main
