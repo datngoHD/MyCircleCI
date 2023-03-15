@@ -3,8 +3,24 @@ jobs:
   test:
     executor: equestria/linux
     steps:
+      - equestria/setup-ssh
+      - equestria/setup-tools
       - checkout
-      - run: yarn install
+      - equestria/docker-login
+      - equestria/setup-node:
+          yarn: true
+      - equestria/update-dependencies:
+          dependency-chain: <<pipeline.parameters.dependency-chain>>
+          dependencies: <<pipeline.parameters.dependencies>>
+          yarn: true
       - run:
-          name: Run Unit Tests
-          command: react-native run-android --variant=debug && yarn test
+          name: Install packages
+          command: |
+            nvm use
+            yarn install --frozen-lockfile
+      - run:
+          name: Run tests
+          command: |
+            nvm use
+            yarn run test
+            
