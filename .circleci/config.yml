@@ -4,8 +4,6 @@ jobs:
     executor: equestria/linux
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
           command: npm install
