@@ -1,12 +1,16 @@
 version: 2.1
 jobs:
-  test:
-    executor: equestria/linux
+  build:
+    working_directory: ~/MyCircleCI
+    docker:
+      - image: cimg/node:18.10.0
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
-          command: yarn install
+          command: npm install
       - run:
           name: Run tests
-          command: yarn test
+          command: npm run test
