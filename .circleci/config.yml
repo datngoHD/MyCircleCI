@@ -1,8 +1,7 @@
 version: 2.1
 jobs:
   test:
-    executor:
-      name: node/default
+    executor: equestria/linux
     steps:
       - checkout
       - run: yarn install
