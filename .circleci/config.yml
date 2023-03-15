@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: circleci/node:latest-browsers1
+      - image: circleci/node:14
     steps:
       - run: echo "Say hello to YAML!"
 
