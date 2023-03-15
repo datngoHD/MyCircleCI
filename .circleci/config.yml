@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  react-native: circleci/react-native@1.1.2
-
 jobs:
   test:
     docker:
