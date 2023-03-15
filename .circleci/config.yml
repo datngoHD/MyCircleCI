@@ -2,8 +2,7 @@ version: 2.1
 
 jobs:
   test:
-    executor:
-      name: node/default
+    executor: node/default
     steps:
       - checkout
       - run:
