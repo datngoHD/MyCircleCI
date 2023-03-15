@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/MyCircleCI
     docker:
-      - image: cimg/node:18.10.0
+      - image: cimg/node:16.13.1
     steps:
       - checkout
       - run:
