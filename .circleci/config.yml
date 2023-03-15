@@ -1,11 +1,16 @@
 version: 2.1
 jobs:
-  build:
+  test:
+    docker:
+      - image: circleci/node:latest-browsers
+    working_directory: ~/repo
     steps:
       - checkout
+      - run: yarn install
+      - persist_from_workspace:
+          root: ~/repo
+          paths:
+            - android/app/build/outputs
       - run:
-          name: Install Dependencies
-          command: yarn install
-      - run:
-          name: Run tests
-          command: yarn test
+          name: Run Unit Tests
+          command: react-native run-android --variant=debug && yarn test
