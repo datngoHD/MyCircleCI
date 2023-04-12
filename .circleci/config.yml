@@ -1,13 +1,14 @@
-version: 2.1
-
-orbs:
-android: circleci/android@0.2.1
-
-jobs:
- build:
-   executor: android/android
-
-   steps:
-     - checkout
-     - run:
-         command: ./gradlew build
+version: 2
+ jobs:
+   build:
+     docker:
+       - image: circleci/ruby:2.4.1
+     steps:
+       - checkout
+       - run: echo "A first hello"
+   build:
+     docker:
+       - image: circleci/ruby:2.4.1
+     steps:
+       - checkout
+       - run: echo "A first hello"
