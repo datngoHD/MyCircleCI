@@ -8,3 +8,16 @@ jobs:
     steps:
       - checkout
       - run: npm install
+      - run:
+          name: Build Android
+          command: |
+            cd android && ./gradlew assembleDebug
+      - store_artifacts:
+          path: app/build/outputs/apk/debug/
+          destination: apk
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
